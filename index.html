@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DatoPerú — tu pregunta, dato oficial en 5 segundos</title>
+<style>
+  :root { --bg:#0f1620; --panel:#17222f; --text:#e8eef5; --muted:#93a5b6;
+          --verde:#2a9d8f; --rojo:#e63946; --azul:#4d96ff; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font-family:"Segoe UI",system-ui,Arial,sans-serif; }
+  .wrap { max-width:960px; margin:0 auto; padding:0 20px; }
+  header { padding:64px 0 36px; border-bottom:1px solid #27394c; }
+  .flag { font-size:44px; }
+  h1 { font-size:clamp(1.6rem,4vw,2.4rem); margin:8px 0 10px; }
+  .one { color:var(--muted); font-size:1.1rem; max-width:760px; }
+  .btns { margin-top:22px; display:flex; gap:12px; flex-wrap:wrap; }
+  .btn { padding:12px 22px; border-radius:10px; text-decoration:none;
+         font-weight:600; }
+  .btn.p { background:var(--verde); color:#06281f; }
+  .btn.s { background:var(--panel); color:var(--text); border:1px solid #27394c; }
+  h2 { margin:44px 0 14px; font-size:1.3rem; color:var(--verde); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+          gap:14px; }
+  .card { background:var(--panel); border:1px solid #27394c; border-radius:12px;
+          padding:18px; }
+  .card h3 { margin:0 0 6px; font-size:1rem; }
+  .card p { color:var(--muted); font-size:.9rem; margin:0; line-height:1.5; }
+  img.shot { width:100%; border-radius:10px; border:1px solid #27394c; }
+  video { width:100%; border-radius:12px; border:1px solid #27394c; }
+  code { background:var(--panel); padding:2px 8px; border-radius:6px; }
+  pre { background:var(--panel); border:1px solid #27394c; border-radius:10px;
+        padding:16px; overflow:auto; }
+  footer { color:var(--muted); font-size:.85rem; padding:40px 0 30px;
+           text-align:center; }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="flag">🇵🇪</div>
+  <h1>DatoPerú</h1>
+  <p class="one">Responde en segundos preguntas sobre la economía y la pobreza del
+  Perú —con datos oficiales del BCRP y del INEI (ENAHO), cada cifra con su fuente
+  citada.</p>
+  <div class="btns">
+    <a class="btn p" href="https://github.com/jonatan-amaya/dato-peru">Ver el código en GitHub</a>
+    <a class="btn s" href="#demo">Ver el demo (video)</a>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <h2>El problema</h2>
+  <div class="grid">
+    <div class="card"><h3>⏱️ 20–40 minutos por cifra</h3>
+      <p>Encontrar el portal correcto, descargar la serie, depurar y verificar
+      la vigencia de un solo dato oficial toma media hora.</p></div>
+    <div class="card"><h3>🤖 Los LLMs recuerdan, no citan</h3>
+      <p>Un chatbot genérico da una cifra aproximada de memoria, sin código de
+      serie ni periodo: riesgo de inventar el dato.</p></div>
+    <div class="card"><h3>✅ DatoPerú: exacto y citable</h3>
+      <p>Cada respuesta trae código de serie del BCRP, factor de expansión de la
+      ENAHO y fecha de consulta. Verificable en un clic.</p></div>
+  </div>
+
+  <h2 id="demo">El demo (video de respaldo, 81 s)</h2>
+  <video controls preload="metadata" poster="static/captura_inflacion.png">
+    <source src="static/video_respaldo.mp4" type="video/mp4">
+  </video>
+
+  <h2>El producto en acción</h2>
+  <div class="grid">
+    <div class="card"><h3>Inflación de diciembre 2024</h3>
+      <img class="shot" src="static/captura_inflacion.png" alt="Respuesta de inflación con gráfico y fuente"></div>
+    <div class="card"><h3>Pobreza en Cusco (ENAHO)</h3>
+      <img class="shot" src="static/captura_cusco.png" alt="Respuesta de pobreza departamental"></div>
+    <div class="card"><h3>Mapa departamental</h3>
+      <img class="shot" src="static/captura_mapa.png" alt="Mapa de pobreza por departamento"></div>
+  </div>
+
+  <h2>Cómo funciona</h2>
+  <div class="grid">
+    <div class="card"><h3>🔌 MCP del BCRP</h3>
+      <p>Catálogo oficial de 17,167 series; descarga y resúmenes calculados con
+      Python (Tarea 4 de la diplomatura, 10/10 pruebas).</p></div>
+    <div class="card"><h3>🧠 Skills ENAHO</h3>
+      <p>108,664 personas procesadas de la ENAHO 2024 con factor de expansión;
+      validado contra la cifra oficial (27.53 % vs 27.6 %).</p></div>
+    <div class="card"><h3>🧭 Router determinista</h3>
+      <p>Sin LLM en el camino crítico: cero alucinaciones, cero costo por
+      consulta, respuesta auditable.</p></div>
+  </div>
+
+  <h2>Corre el demo en tu laptop (2 minutos)</h2>
+  <pre><code>git clone https://github.com/jonatan-amaya/dato-peru.git
+cd dato-peru
+pip install streamlit pandas plotly httpx
+streamlit run app.py   # http://localhost:8501</code></pre>
+
+  <h2>El negocio</h2>
+  <div class="grid">
+    <div class="card"><h3>Gratis</h3><p>20 consultas/día para estudiantes y
+      curiosos.</p></div>
+    <div class="card"><h3>S/ 49/mes · profesional</h3><p>Consultas ilimitadas,
+      historial y exportación. Periodistas y analistas.</p></div>
+    <div class="card"><h3>S/ 399/mes · equipos</h3><p>Municipalidades, ONG y
+      consultoras (10 usuarios, marca blanca).</p></div>
+  </div>
+
+  <footer>
+    <p>DatoPerú · Jonatan Amaya · Diplomatura Q-Lab PUCP · Noviembre 2026 ·
+    Hecho con agentes de IA y datos públicos del Perú ·
+    <a href="https://github.com/jonatan-amaya/dato-peru" style="color:var(--azul)">github.com/jonatan-amaya/dato-peru</a></p>
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:11,279
+Presentamos DatoPerú: tu pregunta, dato oficial en cinco segundos. Datos del Banco Central de Reserva y del INEI, siempre con la fuente citada.
+
+2
+00:00:11,679 --> 00:00:22,530
+El problema: conseguir una cifra oficial toma de veinte a cuarenta minutos. Periodistas, tesistas y funcionarios pierden ese tiempo todos los días.
+
+3
+00:00:22,929 --> 00:00:33,950
+Preguntas por la inflación de diciembre de dos mil veinticuatro y responde con la serie oficial del BCRP: uno coma noventa y siete por ciento, con gráfico y código de serie.
+
+4
+00:00:34,350 --> 00:00:43,329
+O preguntas la pobreza en Cusco: dieciocho coma cinco por ciento, calculado con los microdatos de la ENAHO, con factor de expansión.
+
+5
+00:00:43,730 --> 00:00:54,220
+Y el mapa de pobreza por departamento: veinticinco regiones, unidas por código oficial, desde Ica con seis por ciento hasta Cajamarca con cuarenta y cinco.
+
+6
+00:00:54,620 --> 00:01:08,109
+¿Cómo funciona? Un motor de intenciones elige la herramienta: el servidor MCP del BCRP con diecisiete mil series, y las Skills de la ENAHO con ciento ocho mil personas procesadas.
+
+7
+00:01:08,510 --> 00:01:21,090
+Pruébalo hoy en github.com/jonatan-amaya/dato-peru. Corre en tu laptop en dos minutos. Hecho con agentes de IA y datos públicos del Perú.
