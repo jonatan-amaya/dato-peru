@@ -1,0 +1,11 @@
+[project]
+name = "dato-peru"
+version = "0.1.0"
+description = "Asistente que responde con datos oficiales del Perú (BCRP e INEI/ENAHO)"
+requires-python = ">=3.11"
+dependencies = [
+    "streamlit>=1.40",
+    "pandas>=2.2",
+    "plotly>=5.24",
+    "httpx",
+]
